@@ -8,6 +8,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.tedcard.data.model.CampaignsItem
 import com.example.tedcard.databinding.ItemCampaignBinding
+import com.example.tedcard.util.downloadFromUrl
+import com.example.tedcard.util.placeholderProgressBar
 
 class CampaignAdapter(
     private val onClick: (CampaignsItem) -> Unit
@@ -29,9 +31,9 @@ class CampaignAdapter(
 
         fun bind(item: CampaignsItem) {
             binding.textCampaignName.text = item.name
-            Glide.with(binding.imageCampaign.context)
-                .load(item.image)
-                .into(binding.imageCampaign)
+
+            val progressDrawable = placeholderProgressBar(binding.imageCampaign.context)
+            binding.imageCampaign.downloadFromUrl(item.image, progressDrawable)
 
             binding.buttonDetail.setOnClickListener {
                 onClick(item)

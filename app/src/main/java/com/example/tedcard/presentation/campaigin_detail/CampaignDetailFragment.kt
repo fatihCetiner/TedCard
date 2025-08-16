@@ -1,12 +1,10 @@
 package com.example.tedcard.presentation.campaigin_detail
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import com.example.tedcard.R
+import androidx.fragment.app.Fragment
 import com.example.tedcard.data.model.CampaignsItem
 import com.example.tedcard.databinding.FragmentCampaignDetailBinding
 import com.example.tedcard.util.downloadFromUrl
@@ -30,7 +28,6 @@ class CampaignDetailFragment : Fragment() {
         return binding.root
     }
 
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -45,11 +42,13 @@ class CampaignDetailFragment : Fragment() {
         binding.imageCampaignDetail.downloadFromUrl(item.image, progressDrawable)
 
         binding.textCampaignNameDetail.text = item.name
-        binding.textBadge.text = item.badge
+        binding.chipBadge.text = item.badge
         binding.textDiscountCategory.text = "${item.discountRate}% – ${item.benefitType}"
+
         val beginDate = item.beginOn.take(10)
         val endDate = item.endOn.take(10)
         binding.textDates.text = "$beginDate – $endDate"
+
         binding.textDescription.text = item.description.trim()
     }
 

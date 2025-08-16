@@ -51,7 +51,6 @@ class CampaignsFragment : Fragment() {
                 bundle
             )
         }
-
         binding.recyclerViewCampaigns.layoutManager = LinearLayoutManager(requireContext())
         binding.recyclerViewCampaigns.adapter = adapter
     }

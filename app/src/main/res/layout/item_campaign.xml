@@ -38,15 +38,20 @@
                 android:fontFamily="monospace"
                 />
 
-            <TextView
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/buttonDetail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Detay Gör"
-                android:textColor="@android:color/holo_blue_dark"
+                android:text="Detaylar"
+                android:textColor="@android:color/white"
+                android:backgroundTint="#673AB7"
                 android:textStyle="bold"
                 android:fontFamily="monospace"
-                />
+                android:drawableEnd="@drawable/ic_right_arrow"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"/>
+
+
         </LinearLayout>
     </LinearLayout>
 

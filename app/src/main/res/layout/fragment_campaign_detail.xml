@@ -11,7 +11,6 @@
         android:layout_height="wrap_content"
         android:gravity="center_horizontal">
 
-
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -19,12 +18,13 @@
             app:cardElevation="4dp"
             android:layout_marginBottom="16dp">
 
-            <ImageView
-                android:id="@+id/imageCampaignDetail"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:adjustViewBounds="true"
-                android:scaleType="fitCenter"/>
+                <ImageView
+                    android:id="@+id/imageCampaignDetail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:adjustViewBounds="true"
+                    android:scaleType="fitCenter"/>
+
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
@@ -60,17 +60,14 @@
                         android:fontFamily="monospace"
                         />
 
-                    <TextView
-                        android:id="@+id/textBadge"
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chipBadge"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Popüler"
-                        android:background="@drawable/ic_badge"
-                        android:padding="4dp"
                         android:textColor="@android:color/white"
-                        android:textStyle="bold"
-                        android:fontFamily="sans-serif"
-                        />
+                        app:chipBackgroundColor="#673AB7"
+                        app:chipCornerRadius="8dp"/>
                 </LinearLayout>
 
                 <TextView

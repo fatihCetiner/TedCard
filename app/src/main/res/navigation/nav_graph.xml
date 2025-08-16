@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/campaignsFragment">
+
+    <fragment
+        android:id="@+id/campaignsFragment"
+        android:name="com.example.tedcard.presentation.campaigns.CampaignsFragment"
+        android:label="Kampanyalar">
+        <action
+            android:id="@+id/action_campaignsFragment_to_campaignDetailFragment"
+            app:destination="@id/campaignDetailFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/campaignDetailFragment"
+        android:name="com.example.tedcard.presentation.campaigin_detail.CampaignDetailFragment"
+        android:label="Kampanya Detayı">
+        <argument
+            android:name="campaign"
+            app:argType="com.example.tedcard.data.model.CampaignsItem" />
+    </fragment>
+</navigation>

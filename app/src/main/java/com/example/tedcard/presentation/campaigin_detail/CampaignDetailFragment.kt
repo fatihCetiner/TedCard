@@ -42,7 +42,12 @@ class CampaignDetailFragment : Fragment() {
         binding.imageCampaignDetail.downloadFromUrl(item.image, progressDrawable)
 
         binding.textCampaignNameDetail.text = item.name
-        binding.chipBadge.text = item.badge
+        if (item.badge.isNullOrBlank()) {
+            binding.chipBadge.visibility = View.GONE
+        } else {
+            binding.chipBadge.visibility = View.VISIBLE
+            binding.chipBadge.text = item.badge
+        }
         binding.textDiscountCategory.text = "${item.discountRate}% – ${item.benefitType}"
 
         val beginDate = item.beginOn.take(10)

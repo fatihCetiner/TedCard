@@ -1,58 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="8dp"
-    card_view:cardCornerRadius="12dp"
-    card_view:cardElevation="4dp">
+    android:layout_margin="8dp">
 
-    <LinearLayout
-        android:orientation="vertical"
+    <!-- Kampanya Görseli -->
+    <ImageView
+        android:id="@+id/imageCampaign"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="175dp"
+        android:scaleType="fitCenter"
+        android:adjustViewBounds="true"
+        android:background="@drawable/bg_image_rounded" />
 
-        <ImageView
-            android:id="@+id/imageCampaign"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:scaleType="fitCenter"
-            android:adjustViewBounds="true"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="8dp"
-            android:gravity="center_vertical">
-
-            <TextView
-                android:id="@+id/textCampaignName"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Kampanya İsmi"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:fontFamily="monospace"
-                />
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/buttonDetail"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Detaylar"
-                android:textColor="@android:color/white"
-                android:backgroundTint="#673AB7"
-                android:textStyle="bold"
-                android:fontFamily="monospace"
-                android:drawableEnd="@drawable/ic_right_arrow"
-                android:paddingStart="12dp"
-                android:paddingEnd="12dp"/>
+    <!-- Popüler Chip -->
+    <com.google.android.material.chip.Chip
+        android:id="@+id/chipBadge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="12dp"
+        android:translationY="-20dp"
+        android:text="Popüler"
+        android:textSize="12sp"
+        android:textColor="@android:color/white"
+        app:chipBackgroundColor="#BA322E"
+        app:chipCornerRadius="6dp"
+        android:visibility="gone"
+        android:layout_gravity="start|top" />
 
 
-        </LinearLayout>
-    </LinearLayout>
+    <ImageButton
+        android:id="@+id/fabDetail"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_gravity="end|bottom"
+        android:layout_marginEnd="12dp"
+        android:layout_marginBottom="22dp"
+        android:translationY="-3dp"
+        android:src="@drawable/ic_right_arrow"
+        android:contentDescription="Detay"
+        android:background="@drawable/bg_fab_rounded"
+        android:scaleType="centerInside"
+        android:padding="6dp"
+        app:tint="@android:color/white" />
 
-</androidx.cardview.widget.CardView>
+</FrameLayout>

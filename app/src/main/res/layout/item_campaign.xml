@@ -16,8 +16,9 @@
         <ImageView
             android:id="@+id/imageCampaign"
             android:layout_width="match_parent"
-            android:layout_height="180dp"
-            android:scaleType="centerCrop"/>
+            android:layout_height="200dp"
+            android:scaleType="fitCenter"
+            android:adjustViewBounds="true"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -33,7 +34,9 @@
                 android:layout_weight="1"
                 android:text="Kampanya İsmi"
                 android:textSize="16sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold"
+                android:fontFamily="monospace"
+                />
 
             <TextView
                 android:id="@+id/buttonDetail"
@@ -41,7 +44,9 @@
                 android:layout_height="wrap_content"
                 android:text="Detay Gör"
                 android:textColor="@android:color/holo_blue_dark"
-                android:textStyle="bold"/>
+                android:textStyle="bold"
+                android:fontFamily="monospace"
+                />
         </LinearLayout>
     </LinearLayout>
 

@@ -9,6 +9,8 @@ import android.widget.Toast
 import com.example.tedcard.R
 import com.example.tedcard.data.model.CampaignsItem
 import com.example.tedcard.databinding.FragmentCampaignDetailBinding
+import com.example.tedcard.util.downloadFromUrl
+import com.example.tedcard.util.placeholderProgressBar
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -32,12 +34,23 @@ class CampaignDetailFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        campaign?.let {
-
-            Toast.makeText(requireContext(), "Seçilen kampanya: ${it.name}", Toast.LENGTH_SHORT).show()
-        } ?: run {
-            Toast.makeText(requireContext(), "Kampanya bulunamadı!", Toast.LENGTH_SHORT).show()
+        campaign?.let { item ->
+            displayCampaignDetails(item)
         }
+    }
+
+    private fun displayCampaignDetails(item: CampaignsItem) {
+
+        val progressDrawable = placeholderProgressBar(binding.imageCampaignDetail.context)
+        binding.imageCampaignDetail.downloadFromUrl(item.image, progressDrawable)
+
+        binding.textCampaignNameDetail.text = item.name
+        binding.textBadge.text = item.badge
+        binding.textDiscountCategory.text = "${item.discountRate}% – ${item.benefitType}"
+        val beginDate = item.beginOn.take(10)
+        val endDate = item.endOn.take(10)
+        binding.textDates.text = "$beginDate – $endDate"
+        binding.textDescription.text = item.description.trim()
     }
 
     override fun onDestroyView() {

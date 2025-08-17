@@ -12,20 +12,19 @@ class CampaignViewHolder(
     private val onClick: (CampaignsItem) -> Unit
 ) : RecyclerView.ViewHolder(binding.root) {
 
-    fun bind(item: CampaignsItem) {
-        //binding.textCampaignName.text = item.name
+    fun bind(item: CampaignsItem) = with(binding) {
 
-        val progressDrawable = placeholderProgressBar(binding.imageCampaign.context)
-        binding.imageCampaign.downloadFromUrl(item.image, progressDrawable)
+        val progressDrawable = placeholderProgressBar(imageCampaign.context)
+        imageCampaign.downloadFromUrl(item.image, progressDrawable)
 
         if (item.badge.isNullOrBlank()) {
-            binding.chipBadge.visibility = View.GONE
+            chipBadge.visibility = View.GONE
         } else {
-            binding.chipBadge.visibility = View.VISIBLE
-            binding.chipBadge.text = item.badge
+            chipBadge.visibility = View.VISIBLE
+            chipBadge.text = item.badge
         }
 
-        binding.fabDetail.setOnClickListener {
+        fabDetail.setOnClickListener {
             onClick(item)
         }
     }

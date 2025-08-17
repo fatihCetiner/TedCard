@@ -9,10 +9,10 @@
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="175dp"
-        app:cardCornerRadius="16dp"
         android:layout_marginTop="9dp"
         android:layout_marginBottom="8dp"
-        android:clipToOutline="true">
+        android:clipToOutline="true"
+        app:cardCornerRadius="16dp">
 
         <ImageView
             android:id="@+id/imageCampaign"
@@ -25,15 +25,15 @@
         android:id="@+id/chipBadge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="start|top"
         android:layout_marginStart="18dp"
         android:text="Popüler"
-        android:textSize="12sp"
         android:textColor="@android:color/white"
-        app:chipBackgroundColor="#BA322E"
-        app:chipCornerRadius="6dp"
+        android:textSize="12sp"
+        android:translationY="-8dp"
         android:visibility="gone"
-        android:layout_gravity="start|top"
-        android:translationY="-8dp" />
+        app:chipBackgroundColor="#BA322E"
+        app:chipCornerRadius="6dp" />
 
     <ImageButton
         android:id="@+id/fabDetail"
@@ -42,12 +42,12 @@
         android:layout_gravity="end|bottom"
         android:layout_marginEnd="12dp"
         android:layout_marginBottom="22dp"
-        android:translationY="0dp"
-        android:src="@drawable/ic_right_arrow"
-        android:contentDescription="Detay"
         android:background="@drawable/bg_fab_rounded"
-        android:scaleType="centerInside"
+        android:contentDescription="Detay"
         android:padding="6dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/ic_right_arrow"
+        android:translationY="0dp"
         app:tint="@android:color/white" />
 
 </FrameLayout>

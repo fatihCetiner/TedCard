@@ -32,29 +32,29 @@ class CampaignDetailFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         campaign?.let { item ->
-            displayCampaignDetails(item)
+            setupCampaignDetails(item)
         }
     }
 
-    private fun displayCampaignDetails(item: CampaignsItem) {
+    private fun setupCampaignDetails(item: CampaignsItem) = with(binding) {
 
-        val progressDrawable = placeholderProgressBar(binding.imageCampaignDetail.context)
-        binding.imageCampaignDetail.downloadFromUrl(item.image, progressDrawable)
+        val progressDrawable = placeholderProgressBar(imageCampaignDetail.context)
+        imageCampaignDetail.downloadFromUrl(item.image, progressDrawable)
 
-        binding.textCampaignNameDetail.text = item.name
+        textCampaignNameDetail.text = item.name
         if (item.badge.isNullOrBlank()) {
-            binding.chipBadge.visibility = View.GONE
+            chipBadge.visibility = View.GONE
         } else {
-            binding.chipBadge.visibility = View.VISIBLE
-            binding.chipBadge.text = item.badge
+            chipBadge.visibility = View.VISIBLE
+            chipBadge.text = item.badge
         }
-        binding.textDiscountCategory.text = "${item.discountRate}% – ${item.benefitType}"
+        textDiscountCategory.text = "${item.discountRate}% – ${item.benefitType}"
 
         val beginDate = item.beginOn.take(10)
         val endDate = item.endOn.take(10)
-        binding.textDates.text = "$beginDate – $endDate"
+        textDates.text = "$beginDate – $endDate"
 
-        binding.textDescription.text = item.description.trim()
+        textDescription.text = item.description.trim()
     }
 
     override fun onDestroyView() {

@@ -1,12 +1,17 @@
 package com.example.tedcard.presentation.campaigin_detail
 
+import android.content.res.ColorStateList
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.graphics.toColorInt
 import androidx.fragment.app.Fragment
 import com.example.tedcard.data.model.CampaignsItem
 import com.example.tedcard.databinding.FragmentCampaignDetailBinding
+import com.example.tedcard.util.Constants.POPULAR
+import com.example.tedcard.util.Constants.TUKENIYOR
+import com.example.tedcard.util.Constants.YENI_FIRSAT
 import com.example.tedcard.util.downloadFromUrl
 import com.example.tedcard.util.placeholderProgressBar
 import dagger.hilt.android.AndroidEntryPoint
@@ -47,6 +52,14 @@ class CampaignDetailFragment : Fragment() {
         } else {
             chipBadge.visibility = View.VISIBLE
             chipBadge.text = item.badge
+
+            val badgeColor = when (item.badge.lowercase()) {
+                TUKENIYOR -> "#FFC107".toColorInt()
+                POPULAR -> "#BA322E".toColorInt()
+                YENI_FIRSAT -> "#4CAF50".toColorInt()
+                else -> "#607D8B".toColorInt()
+            }
+            chipBadge.chipBackgroundColor = ColorStateList.valueOf(badgeColor)
         }
         textDiscountCategory.text = "${item.discountRate}% – ${item.benefitType}"
 

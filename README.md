@@ -1,5 +1,5 @@
 # Ted Card App
-Ted Card uygulaması Ted kartlı olan kişilerin yararlana bilecekleri kampanyaları listeler ve kampanya hakkında bilgi verir.
+Ted Card uygulaması Ted kartlı olan kişilerin yararlanabilecekleri kampanyaları listeler ve kampanya hakkında bilgi verir.
 
 # Uygulamada Kullanılanlar
 - Retrofit
